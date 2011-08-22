@@ -1,0 +1,260 @@
+input.num {
+	text-align:right;
+	ime-mode:disabled;
+}
+input.date {
+	text-align:left;
+	ime-mode:disabled;
+}
+input.str {
+	ime-mode:active;
+}
+input.chr {
+	ime-mode:inactive;
+}
+@media print {
+	div.no_print {
+		display:none;
+	}
+}
+body {
+	margin: 0px;
+}
+td {
+	font-size:80%;
+}
+th {
+	font-size:80%;
+}
+
+div.frame_main {
+	margin: 0 0 10 0;
+	height:450px;
+}
+div.frame_icon {
+	position:relative;
+	top:2px;
+}
+div.frame_header {
+/*	background: url(../common/images/bg_header.gif) repeat-x scroll left top;*/
+	background-color: #777777;
+/*	height:23px;*/
+	vertical-align:middle;
+}
+div.frame_header a {
+	color: white;
+	text-decoration: none;
+}
+div.frame_header img {
+	border-width: 0px;
+	vertical-align:middle;
+}
+div.frame_header span {
+	position:relative;
+	top:0px;
+	left:0px;
+	font: 13px 'ＭＳ ゴシック';
+}
+div.frame_sub {
+/*	background: url(../common/images/bg_sub.gif) repeat-x scroll left bottom; */
+	background-color: #000099;
+	height:30px;
+	vertical-align:middle;
+}
+div.frame_sub th {
+	border: 0px solid black;
+}
+div.frame_sub td {
+	border: 0px solid black;
+	font-weight: bold;
+	color: silver;
+}
+div.frame_sub a {
+	font-weight: bold;
+	color: #F5D54A;
+	text-decoration: none;
+}
+span.sub_cursor a {
+	text-decoration: underline;
+}
+div.frame_footer {
+/*	background: url(../common/images/bg_footer.gif) repeat-x scroll left top;*/
+	background-color: #777777;
+}
+div.frame_footer a {
+	font: bold 13px 'ＭＳ ゴシック';
+	color: white;
+	text-decoration: none;
+}
+div.frame_footer span {
+	font: bold 13px 'ＭＳ ゴシック';
+}
+div.frame_menu {
+	background-image: url(../common/images/bg_menu.gif);
+}
+div.frame_menu a {
+	text-decoration: none;
+}
+div.frame_menu td {
+	text-align: center;
+	font: 13px 'ＭＳ ゴシック';
+}
+div.frame_menu span {
+	position:relative;
+	top:9px;
+	left:0px;
+}
+div.menu_button {
+	background: url(../common/images/menu_button.gif) no-repeat scroll center top;
+	width:51px;
+	height:32px;
+	vertical-align:middle;
+	cursor: pointer;
+}
+div.menu_button_selected {
+	background: url(../common/images/menu_button_selected.gif) no-repeat scroll center top;
+	width:51px;
+	height:32px;
+	vertical-align:middle;
+	cursor: pointer;
+}
+span.menu_text {
+	position:relative;
+	top:6px;
+	font: 13px 'ＭＳ ゴシック';
+}
+div.frame_form table {
+/*	border-collapse: collapse;	*/
+}
+div.frame_form th {
+	background-color: #666666;
+	color: white;
+	font-size:  80%;
+	font-weight: normal;
+	padding: 0 10 0 10;
+}
+div.frame_form td {
+	font-size:  80%;
+	padding: 0 10 0 10;
+}
+div.frame_form input {
+	font-size:  80%;
+}
+div.frame_list table {
+	border-collapse: collapse;
+}
+div.frame_list th {
+	background-color: #666666;
+	border: 1px solid black;
+	color: white;
+	font-weight: normal;
+	font-size:  80%;
+	padding: 3 3 3 3;
+}
+div.frame_list td {
+/*	background-color: #cccccc;	*/
+	border: 1px solid black;
+	font-size:  80%;
+	padding: 3 3 3 3;
+}
+a.sort {
+	color: white;
+}
+div.frame_list input {
+	font-size:  80%;
+}
+td.list_line {
+	background: url(../common/images/list_line.gif) repeat-x scroll left top;
+}
+div.frame_paging_list {
+	height:350px
+}
+div.frame_paging_list table {
+	border-collapse: collapse;
+}
+div.frame_paging_list th {
+	border: 1px solid silver;
+	background-color:silver;
+	font-size:  80%;
+}
+div.frame_paging_list td {
+	border: 1px solid silver;
+	background-color:white;
+	font-size:  80%;
+	padding: 1 5 1 5;
+}
+div.frame_paging_list a {
+	color: blue;
+}
+div.frame_paging_header a {
+	font-weight: bold;
+	color: #F5D54A;
+}
+div.frame_paging_header td {
+	font-weight: normal;
+	color: white;
+}
+div.frame_select {
+	background: #2868ff url(../common/images/bg_select.gif) no-repeat scroll left top;
+	height:40px;
+	vertical-align:middle;
+	text-align:right;
+}
+div.frame_form_header table {
+	border-collapse: collapse;
+}
+div.frame_form_header th {
+	background-color: #666666;
+	border: 1px solid black;
+	color: white;
+	font-weight: normal;
+	font-size:  80%;
+	padding: 3 3 3 3;
+}
+div.frame_form_header td {
+	border: 1px solid black;
+	font-size:  80%;
+	padding: 3 3 3 3;
+}
+div.frame_index {
+	margin: 25 25 25 25;
+}
+tr.selected {
+	background-color: yellow;
+}
+tr.null {
+	background-color: white;
+}
+tr.complete {
+	background-color: silver;
+}
+h1 {
+	background: url(../common/images/bg_h1.gif) repeat-x scroll left top;
+	height:67px;
+}
+h1 img {
+	height:67px;
+	float:left;
+}
+h1 span {
+	position:relative;
+	top: 15px;
+	height:67px;
+}
+div.frame_box {
+	margin: 5 5 5 5;
+	float: left;
+}
+div.box_left {
+	margin: 0 5 10 0;
+	float: left;
+}
+div.box_right {
+	margin: 0 0 10 5;
+	float: right;
+}
+div.frame_tab a {
+	position:relative;
+	top:0px;
+	color: black;
+}

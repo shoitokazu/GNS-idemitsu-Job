@@ -1,0 +1,115 @@
+@charset "Shift_JIS";
+
+* {
+    margin:0;
+    padding:0;
+}
+
+body {
+    scrollbar-arrow-color:gray;
+    scrollbar-base-color:white;
+    scrollbar-darkshadow-color:#ddd;
+    scrollbar-highlight-color:black;
+    scrollbar-shadow-color:black;
+    scrollbar-track-color:white;
+}
+
+h1 {
+    background:url(../image/staff_list/bg_head.gif) repeat-x top;
+    margin-bottom:0.5em;
+    padding-bottom:5px;
+    padding-left:5px;
+    color:white;
+    line-height:24px;
+    font-size:0.8em;
+}
+
+p {
+    font-size:0.8em;
+    line-height:1.4em;
+    margin-bottom:0.5em;
+    text-align:center;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+
+
+/*
+**    staff
+===============================================*/
+table#staff {
+    width:100%;
+}
+    table#staff th, table#staff td {
+    }
+    table#staff th {
+    }
+    table#staff td {
+    }
+    /* (thead) */
+    table#staff thead th, table#staff thead td {
+        font-size:0.7em;
+        line-height:1.5em;
+        background:#036;
+        color:white;
+        font-weight:normal;
+    }
+        table#staff thead th.name {
+            text-align:left;
+        }
+    /* (tbody) */
+    table#staff tbody th, table#staff tbody td {
+        font-size:0.8em;
+        line-height:1.3em;
+        padding:0.2em 0;
+    }
+        table#staff tbody th {
+            width:3em;
+            padding-left:5px;
+            padding-right:1em;
+            text-align:right;
+        }
+        table#staff tbody td {
+        }
+        /* button */
+        table#staff tbody td.button {
+            text-align:right;
+            padding-right:10px;
+        }
+            table#staff tbody th, table#staff tbody td.button input {
+                font-size:0.8em;
+                line-height:normal;
+            }
+
+    /* odd */
+    table#staff tbody tr.odd {
+        background:white;
+    }
+    /* even */
+    table#staff tbody tr.even {
+        background:#f2f2f2;
+    }
+
+
+/* close */
+p.close {
+    font-size:0.7em;
+    padding:0.5em 0;
+    background:#555;
+    border-top:5px ridge #ddd;
+}
+    p.close a {
+        text-decoration:none;
+        color:white;
+        vertical-align:middle;
+    }
+    p.close a:hover {
+        text-decoration:underline;
+        color:yellow;
+    }
+
+
+

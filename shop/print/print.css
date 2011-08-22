@@ -1,0 +1,45 @@
+@media print {
+	div.no_print {
+		display:none;
+	}
+}
+
+div.print {
+	font-family: 'ＭＳ ゴシック','ＭＳ 明朝','細明朝体';
+	font-size:13px;
+	text-align:left;
+}
+div.print table {
+	font-family: 'ＭＳ ゴシック','ＭＳ 明朝','細明朝体';
+	font-size:13px;
+	text-align:left;
+}
+td.sum {
+	border-bottom:1px solid black;
+	font-size:16px;
+	font-weight: bold;
+}
+div.detail table {
+	border:1px solid black;
+	border-collapse: collapse;
+}
+div.detail td {
+	border:1px solid black;
+}
+div.detail th {
+	border:1px solid black;
+	text-align:center;
+}
+div.border table {
+	border:1px solid black;
+	border-collapse: collapse;
+}
+div.border td {
+	border:1px solid black;
+}
+div.border th {
+	border:1px solid black;
+}
+tr.null td {
+	border-style:none solid none solid;
+}

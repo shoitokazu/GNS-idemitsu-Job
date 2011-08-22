@@ -1,0 +1,425 @@
+input.num {
+	text-align:right;
+	ime-mode:disabled;
+}
+input.date {
+	text-align:left;
+	ime-mode:disabled;
+}
+input.str {
+	ime-mode:active;
+}
+input.chr {
+	ime-mode:inactive;
+}
+@media print {
+	div.no_print {
+		display:none;
+	}
+}
+body {
+	margin: 0px;
+}
+td {
+}
+th {
+}
+
+div.frame_main {
+	margin: 0px 0px 10px 0px;
+	height: 450px;
+}
+div.frame_icon {
+	position:relative;
+	top:2px;
+}
+div.frame_logo {
+	background: url(../common/images/logo.jpg) no-repeat scroll left top;
+	vertical-align:middle;
+	height: 45px;
+}
+div.frame_header {
+	background-color: #777777;
+	vertical-align:middle;
+}
+div.frame_header a {
+	color: white;
+	text-decoration: none;
+}
+div.frame_header img {
+	border-width: 0px;
+	vertical-align:middle;
+}
+div.frame_header span {
+	position:relative;
+	top:0px;
+	left:0px;
+	font: 13px 'ＭＳ ゴシック';
+}
+div.frame_sub {
+	background-color: #000099;
+	height:30px;
+	vertical-align:middle;
+}
+div.frame_sub th {
+	border: 0px solid black;
+}
+div.frame_sub td {
+	border: 0px solid black;
+	font-weight: bold;
+	color: silver;
+}
+div.frame_sub a {
+	font-weight: bold;
+	color: #F5D54A;
+	text-decoration: none;
+}
+span.sub_cursor a {
+	text-decoration: underline;
+}
+div.frame_footer {
+	background-color: #777777;
+}
+div.frame_footer a {
+	font: bold 13px 'ＭＳ ゴシック';
+	color: white;
+	text-decoration: none;
+}
+div.frame_footer span {
+	font: bold 13px 'ＭＳ ゴシック';
+}
+div.frame_menu {
+	background-color:#cdcbcb;
+}
+div.frame_menu a {
+	text-decoration: none;
+}
+div.frame_menu td {
+	text-align: center;
+	font: 13px 'ＭＳ ゴシック';
+}
+div.frame_menu span {
+	position:relative;
+	top:9px;
+	left:0px;
+}
+div.menu_button {
+	background: url(../common/images/menu_button.gif) no-repeat scroll center top;
+	width:51px;
+	height:32px;
+	vertical-align:middle;
+	cursor: pointer;
+}
+div.menu_button_selected {
+	background: url(../common/images/menu_button_selected.gif) no-repeat scroll center top;
+	width:51px;
+	height:32px;
+	vertical-align:middle;
+	cursor: pointer;
+}
+span.menu_text {
+	position:relative;
+	top:6px;
+	font: 13px 'ＭＳ ゴシック';
+}
+div.frame_form table {
+/*	border-collapse: collapse;	*/
+}
+div.frame_form th {
+	background-color: #666666;
+	color: white;
+	font-weight: normal;
+	padding: 0px 10px 0px 10px;
+}
+div.frame_form td {
+	padding: 0px 10px 0px 10px;
+}
+div.frame_form input {
+}
+div.frame_list table {
+	border-collapse: collapse;
+}
+div.frame_list th {
+	background-color: #666666;
+	border: 1px solid black;
+	color: white;
+	font-weight: normal;
+	padding: 3px 3px 3px 3px;
+}
+div.frame_list td {
+	border: 1px solid black;
+	padding: 3px 3px 3px 3px;
+}
+a.sort {
+	color: white;
+}
+div.frame_list input {
+}
+td.list_line {
+	background: url(../common/images/list_line.gif) repeat-x scroll left top;
+}
+div.frame_paging_list {
+	height:350px
+}
+div.frame_paging_list table {
+	border-collapse: collapse;
+}
+div.frame_paging_list th {
+	border: 1px solid silver;
+	background-color:silver;
+}
+div.frame_paging_list td {
+	border: 1px solid silver;
+	background-color:white;
+	padding: 1px 5px 1px 5px;
+	font-size: 12px;
+}
+div.frame_paging_list a {
+	color: blue;
+}
+div.frame_paging_header a {
+	font-weight: bold;
+	color: #F5D54A;
+}
+div.frame_paging_header td {
+	font-weight: normal;
+	color: white;
+}
+div.frame_select {
+	background: #2868ff url(../common/images/logo.jpg) no-repeat scroll left top;
+	height:45px;
+	vertical-align:middle;
+	text-align:right;
+}
+div.frame_form_header table {
+	border-collapse: collapse;
+}
+div.frame_form_header th {
+	background-color: #666666;
+	border: 1px solid black;
+	color: white;
+	font-weight: normal;
+	padding: 3px 3px 3px 3px;
+}
+div.frame_form_header td {
+	border: 1px solid black;
+	padding: 3px 3px 3px 3px;
+}
+div.frame_index {
+	margin: 25px 25px 25px 25px;
+}
+tr.selected {
+	background-color: yellow;
+}
+tr.null {
+	background-color: white;
+}
+tr.complete {
+	background-color: silver;
+}
+h1 {
+	margin: 20px;
+	font: bold 16px 'ＭＳ ゴシック';
+}
+div.frame_box {
+	margin: 5px 5px 5px 5px;
+	float: left;
+}
+div.frame_line {
+	margin: 10px;
+	clear: both;
+}
+div.frame_tab a {
+	position:relative;
+	top:0px;
+	color: black;
+}
+div.frame_tab {
+	margin: 6px 0px 7px 0px;
+}
+span.tab {
+	padding: 5px 10px 5px 10px;
+	border: 1px solid silver;
+	border-bottom: 2px solid black;
+}
+span.tab_selected {
+	color: black;
+	padding: 5px 10px 5px 10px;
+	background-color: silver;
+	border: 1px solid black;
+	border-bottom: 2px solid silver;
+}
+div.frame_select_window {
+	margin: 7px;
+}
+tr.strong td {
+	background-color: red;
+}
+
+/* old-ylocs css */
+div#status {
+    width:13.25em;
+    margin-bottom:0.5em;
+}
+    div#status p {
+        margin:0.5em 2px;
+    }
+    div#status div.buttons {
+        background:none;
+        margin:0 0 0.2em;
+        padding-bottom:0;
+        padding-top:0;
+    }
+        div#status div.buttons form {
+            display:inline;
+        }
+
+/* scchedule */
+div#schedule {
+    padding-bottom:7px;
+}
+    div#schedule table {
+        border-collapse:collapse;
+        margin-top:7px;
+        background:white;
+        border:2px inset #ccc;
+    }
+    div#schedule table th, div#schedule table td {
+        background:none;
+        border:1px inset #999;
+        padding:0.3em 0.5em;
+        height:auto !important; height:60px; min-height:60px;
+    }
+    div#schedule table th {
+    }
+    div#schedule table td {
+    }
+    /* thead */
+    div#schedule table thead th, div#schedule table thead td {
+        background:url(../common/images/bg_thead.gif) bottom repeat-x;
+        padding:0;
+        text-align:center;
+        vertical-align:middle;
+        color:white;
+        font-size:0.8em;
+        width:90px;
+	font-weight:normal;
+    }
+        div#schedule table thead a {
+            display:block;
+            padding:2em 0;
+            width:100%;
+            color:white;
+        }
+        div#schedule table thead a:hover {
+            color:red;
+        }
+    /* today */
+    div#schedule table thead th.today {
+    }
+        div#schedule table thead th.today a {
+            background:url(../common/images/today.gif) no-repeat 5px 5px;
+        }
+    /* tbody */
+    div#schedule table tbody th, div#schedule table tbody td {
+    }
+    div#schedule table tbody th {
+        text-align:center;
+        vertical-align:middle;
+        background:#ffc;
+        font-size:0.8em;
+	font-weight:normal;
+    }
+    div#schedule table tbody td {
+        font-size:0.7em;
+	text-align: left;
+	vertical-align:top;
+    }
+        /* icon */
+        div#schedule table tbody td a.icon {
+        }
+        div#schedule table tbody td a.icon:hover {
+            position:relative;
+            top:1px; left:1px;
+        }
+    /* sunday */
+    div#schedule table thead th.sunday, div#schedule table thead th.sunday a {
+        color:red;
+    }
+    div#schedule table tbody td.sunday {
+        background:#fdd;
+    }
+    /* saturday */
+    div#schedule table thead th.saturday, div#schedule table thead th.saturday a {
+        color:#0a0;
+    }
+    div#schedule table tbody td.saturday {
+        background:#dfd;
+    }
+    /* (child table) */
+    div#schedule table table {
+        width:auto;
+        margin:0;
+        border-width:0;
+    }
+        div#schedule table table th, div#schedule table table td {
+            height:auto;
+            border-width:0;
+            text-align:left;
+            padding:0;
+        }
+
+
+
+/*
+**    schedule_monthly.html用
+===============================================*/
+/* status */
+body#page_schedule_monthly div#status {
+    width:8.8em;
+}
+    /* (tbody) */
+    body#page_schedule_monthly div#schedule table tbody {
+    }
+        /* (th) */
+        body#page_schedule_monthly div#schedule table tbody th {
+        }
+            body#page_schedule_monthly div#schedule table tbody th a {
+            }
+        /* today */
+        body#page_schedule_monthly div#schedule table tbody td.today {
+            background:url(../image/icon/today_small.gif) no-repeat 5px 5px;
+        }
+
+
+
+/*
+**    schedule_daily.html用
+===============================================*/
+/* status */
+body#page_schedule_daily div#status {
+    width:17em;
+}
+/* daily */
+body#page_schedule_daily div#daily {
+}
+    body#page_schedule_daily div#daily table {
+        background-image:none;
+    }
+
+
+
+/*
+**    schedule_form.html用
+===============================================*/
+body#page_schedule_form {
+}
+    /* master */
+    body#page_schedule_form div#master {
+    }
+        /* lead */
+        body#page_schedule_form div#master p.lead {
+            padding:0.3em 0 5px;
+            margin:0 7px;
+            background:url(../common/images/hr.gif) repeat-x bottom;
+        }
