@@ -136,61 +136,101 @@ class Table {
      * @param <Array> $headers header for every column
      * @param <Array> $data data matrix
      */
-    public function showTable($headers, $data,$headersub) {
+    public function showTable($headers, $data, $headersub)
+   {
+       $leftCol = array(
+       		0 => "舟艇保管",
+            1=> "申込金",
+            2 => "保管料（舟艇）",
+            3 => "保管料（PW）",
+            4 => "計",
+            5 => "粗利益"
+       );
+       $leftColCount = count($leftCol);
        $count = 0;
        $table = "<table $this->tableWidth $this->tableId $this->tableClass>";
 
 
-      $dataCount =max($headersub);
-           //$table .= "<thead $this->headerId $this->headerClass><tr>";
-           $table.= "<tr>";
-            for ($i=0; $i<5 ; $i++)
-       {
-           foreach ($headers as $h) {
+       /*$dataCount = max($headersub);*/
+       /*$people = array("Peter", "Joe", "Glenn", "Cleveland");*/
+	   $dataCount = count($headersub);
+
+       //$table .= "<thead $this->headerId $this->headerClass><tr>";
+       $table.= "<tr>";
+       $table.= "<td'></td>";
+      
+           if ($i == 0)
+           {
+               $table.="<td colspan='2'>A</td>";
+               $j++;
+           }
+           foreach ($headers as $h)
+           {
                //$style = $this->columnsWidth[$count];
-               $table .= "<td colspan='$dataCount' align='center'>$h</td>";
+               $table .= "<td colspan='$dataCount' align='center' nowrap='nowrap'>$h</td>";
                $count++;
            }
-            }
-           $table .= "</tr><tr>";
-
-for ($i=0; $i<5 ; $i++)
-       {
-           foreach ($headersub as $g)
-           {
-               $table .= "<td>$g</td>";
-           }
-           }
-            $table .= "</tr>";
-
        
-
-           //BODY
-
-           $count = 0;
-           foreach ($data as $row) {
-               if ($this->zebra) {
-                   $count++;
-                   if ($count % 2 == 1)
-                       $this->zebraClass = "class=\"zebraOn\"";
-                   else
-                       $this->zebraClass = "class=\"zebraOff\"";
-               }
-
-               $table .= "<tr $this->zebraClass>";
-for ($i=0; $i<5 ; $i++)
+       $table .= "</tr><tr>";
+      $table.= "<td'></td>";
+       for ($i = 0; $i < 5; $i++)
        {
+           if ($i == 0)
+           {
+               $table.="<td nowrap='nowrap'>部門</td><td></td>";
+               $j++;
+           }
+           
+           for ($i = 0; $i < 4; $i++)
+           {
+               for ($j = 0; $j < 4; $j++)
+              {
+               //$style = $this->columnsWidth[$count];
+               $table .= "<td align='center' nowrap='nowrap'>".$headersub[$i][$j]."</td>";
+               $count++;
+              }
+           }
+           
+           /*
+            * foreach ($headersub as $g)
+            
+           {
+               $table .= "<td nowrap='nowrap'>$g</td>";
+           }
+            * 
+            */
+       }
+       $table .= "</tr>";
+
+
+
+       //BODY
+       $j = 0;
+       $count = 0;
+        $table.= "<td rowspan='$leftColCount' nowrap='nowrap'>$leftCol[0]</td>";
+       foreach ($data as $row)
+       {
+
+
+           $table .= "<tr $this->zebraClass>";
+           for ($i = 0; $i < 4; $i++)
+           {
+               if ($i == 0)
+               {
+                   $table.="<td nowrap='nowrap'>$leftCol[$j]</td>";
+                   $j++;
+               }
                foreach ($row as $col)
-                   $table .= "<td>$col</td>";
-               
+               {
+                   $table .= "<td nowrap='nowrap'>$col</td>";
+               }
            }
        }
        $table .= "</tr>";
-           $table .= "</table>";
+       $table .= "</table>";
 
-           echo $table;
-       
-       }
+       echo $table;
+   }
 }
 
 ?>

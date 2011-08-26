@@ -3,14 +3,14 @@
  * @author Michele Andreoli <michi.andreoli@gmail.com>
  * @name index.php
  * @version 0.1
- * @license�http://opensource.org/licenses/gpl-license.php�GNU�Public�License
+ * @license�http://opensource.org/licenses/gpl-license.php�GNU�Public�License
  * @package TableGenerator
  */
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
    <head>
-      <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" href="index.css" type="text/css" />
         <title>Table generator</title>
     </head>
@@ -19,17 +19,23 @@
             require_once 'Table.php';
 
             //Set table's headers
-            $headers = array("ID");
-            $headersub = array("1","2","3","4");
+            $headers = array("平成21年4月","平成21年5月","平成21年6月","平成21年4〜6月計");
+            /*
+            $headersub = array("２０／４実","計画","実績","計画増減");
+            */
+            $headersub = array( 
+            				array("20/4実","計画","実績","計画増減"),
+               			 	array("20/5実","計画","実績","計画増減"),
+               			 	array("20/6実","計画","実績","計画増減"),
+               			 	array("前Q実績","前Q計画","前Q実績","計画増減")  
+             ); 
+             
             //Set table's matrix data
-            $data[0] = array("1", "Megan", "GNS", "<a href=\"#\">index</a>");
+            $data[0] = array("0", "0", "200", "200");
             $data[1] = array("2", "John", "GNS", "<a href=\"#\">index</a>");
             $data[2] = array("3", "Paul", "GNS", "<a href=\"#\">index</a>");
             $data[3] = array("4", "Michael", "GNS", "<a href=\"#\">index</a>");
             $data[4] = array("5", "George", "GNS", "<a href=\"#\">index</a>");
-            $data[5] = array("6", "Jill", "GNS", "<a href=\"#\">index</a>");
-            $data[6] = array("7", "Billy", "GNS", "<a href=\"#\">index</a>");
-            $data[7] = array("8", "Steve", "GNS", "<a href=\"#\">index</a>");
 
             echo "<h1 style=\"text-align: center\">Table exemple</h1>";
 
