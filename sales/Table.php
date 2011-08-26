@@ -148,7 +148,7 @@ class Table {
        );
        $leftColCount = count($leftCol);
        $count = 0;
-       $table = "<table $this->tableWidth $this->tableId $this->tableClass>";
+       $table = "<table $this->tableWidth $this->tableId $this->tableClass background='#000' cellspacing='1' border='0'>";
 
 
        /*$dataCount = max($headersub);*/
@@ -161,13 +161,13 @@ class Table {
       
            if ($i == 0)
            {
-               $table.="<td colspan='2'>A</td>";
+               $table.="<td colspan='2'></td>";
                $j++;
            }
            foreach ($headers as $h)
            {
                //$style = $this->columnsWidth[$count];
-               $table .= "<td colspan='$dataCount' align='center' nowrap='nowrap'>$h</td>";
+               $table .= "<td colspan='$dataCount' align='center' nowrap='nowrap'><b>$h</b></td>";
                $count++;
            }
        
@@ -177,7 +177,7 @@ class Table {
        {
            if ($i == 0)
            {
-               $table.="<td nowrap='nowrap'>部門</td><td></td>";
+               $table.="<td nowrap='nowrap'><b>部門</b></td><td></td>";
                $j++;
            }
            
@@ -186,7 +186,7 @@ class Table {
                for ($j = 0; $j < 4; $j++)
               {
                //$style = $this->columnsWidth[$count];
-               $table .= "<td align='center' nowrap='nowrap'>".$headersub[$i][$j]."</td>";
+               $table .= "<td align='center' nowrap='nowrap'><b>".$headersub[$i][$j]."</b></td>";
                $count++;
               }
            }
@@ -207,7 +207,7 @@ class Table {
        //BODY
        $j = 0;
        $count = 0;
-        $table.= "<td rowspan='$leftColCount' nowrap='nowrap'>$leftCol[0]</td>";
+        $table.= "<td rowspan='$leftColCount' nowrap='nowrap'><b>$leftCol[0]</b></td>";
        foreach ($data as $row)
        {
 
@@ -217,7 +217,7 @@ class Table {
            {
                if ($i == 0)
                {
-                   $table.="<td nowrap='nowrap'>$leftCol[$j]</td>";
+                   $table.="<td nowrap='nowrap'><b>$leftCol[$j]</b></td>";
                    $j++;
                }
                foreach ($row as $col)

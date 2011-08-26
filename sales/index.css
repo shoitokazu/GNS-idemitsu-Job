@@ -11,6 +11,7 @@ table#tableID {
 
 table#tableID td {
     padding: 5px;
+    border: 1px black solid;
 }
 
 table#tableID .zebraOn{
