@@ -6,16 +6,7 @@
  * @license�http://opensource.org/licenses/gpl-license.php�GNU�Public�License
  * @package TableGenerator
  */
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-   <head>
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <link rel="stylesheet" href="index.css" type="text/css" />
-        <title>Table generator</title>
-    </head>
-    <body>
-        <?php
+require 'header.php';
             require_once 'Table.php';
 
             //Set table's headers
@@ -23,20 +14,38 @@
             /*
             $headersub = array("２０／４実","計画","実績","計画増減");
             */
-            $headersub = array( 
+            /*
+             * $headersub = array( 
+             
             				array("20/4実","計画","実績","計画増減"),
                			 	array("20/5実","計画","実績","計画増減"),
                			 	array("20/6実","計画","実績","計画増減"),
                			 	array("前Q実績","前Q計画","前Q実績","計画増減")  
              ); 
-             
+             */
             //Set table's matrix data
-            $data[0] = array("0", "0", "200", "200");
+            
+        $db = db_conni();
+        $SQL="SELECT * FROM jitsu_shushi";
+$result=$db->query($SQL)or die(print_r($db->error));
+$i=0;
+while($obj=$result->fetch_array(MYSQLI_ASSOC));
+{
+    echo $obj[$i];
+    $i++;
+}
+
+
+/*$SQL->bind_param('sis', $comment2,$id,$_SESSION['username']);*/
+     
+             
+             /*
+            $data[0] = array("0", "0", "200", "200"); 
             $data[1] = array("2", "John", "GNS", "<a href=\"#\">index</a>");
             $data[2] = array("3", "Paul", "GNS", "<a href=\"#\">index</a>");
             $data[3] = array("4", "Michael", "GNS", "<a href=\"#\">index</a>");
             $data[4] = array("5", "George", "GNS", "<a href=\"#\">index</a>");
-
+            */
             echo "<h1 style=\"text-align: center\">Table exemple</h1>";
 
             /**
