@@ -14,38 +14,89 @@ require 'header.php';
             /*
             $headersub = array("２０／４実","計画","実績","計画増減");
             */
-            /*
-             * $headersub = array( 
+            $headersub = array( 
              
             				array("20/4実","計画","実績","計画増減"),
                			 	array("20/5実","計画","実績","計画増減"),
                			 	array("20/6実","計画","実績","計画増減"),
                			 	array("前Q実績","前Q計画","前Q実績","計画増減")  
              ); 
-             */
             //Set table's matrix data
-            
-        $db = db_conni();
-        $SQL="SELECT * FROM jitsu_shushi";
-$result=$db->query($SQL)or die(print_r($db->error));
-$i=0;
-while($obj=$result->fetch_array(MYSQLI_ASSOC));
+function db_connect()
 {
-    echo $obj[$i];
-    $i++;
+   //$result = new mysqli('localhost', 'blackj6_ray', 'ayabua0607111', 'blackj6_dunami');
+   $result = new mysqli('localhost', 'root', '', 'ilocsdb');
+   $result->set_charset("utf8");
+  
+   
+if (!$result) {
+throw new Exception('Could not connect to database server');
+} else {
+return $result;
 }
 
+}
 
-/*$SQL->bind_param('sis', $comment2,$id,$_SESSION['username']);*/
-     
-             
-             /*
-            $data[0] = array("0", "0", "200", "200"); 
-            $data[1] = array("2", "John", "GNS", "<a href=\"#\">index</a>");
-            $data[2] = array("3", "Paul", "GNS", "<a href=\"#\">index</a>");
-            $data[3] = array("4", "Michael", "GNS", "<a href=\"#\">index</a>");
-            $data[4] = array("5", "George", "GNS", "<a href=\"#\">index</a>");
-            */
+$data = array();
+$data2 = array();
+$data3 = array();
+$data4 = array();
+
+$db = db_connect();
+$SQL ="SELECT * FROM jitsu_shushi";
+$result = $db->query($SQL) or die(print_r($db->error));
+$i = 1;
+while ($obj = $result->fetch_array(MYSQL_ASSOC))
+{
+ $data[$i]["mishikomikin"] = $obj["mishikomikin"];
+ $data[$i]["hokanryou-shutei"] = $obj["hokanryou-shutei"];
+ $data[$i]["hokanryou-pw"] = $obj["hokanryou-pw"];
+ $data[$i]["hokanzougen"] = $obj["hokanzougen"];
+ $data[$i]["hokansukei"] = $obj["hokansukei"];
+ $i++;
+}
+$db = db_connect();
+$SQL ="SELECT * FROM keikaku_shushi";
+$result = $db->query($SQL) or die(print_r($db->error));
+$i = 1;
+while ($obj = $result->fetch_array(MYSQL_ASSOC))
+{
+ $data2[$i]["mishikomikin"] = $obj["mishikomikin"];
+ $data2[$i]["hokanryou-shutei"] = $obj["hokanryou-shutei"];
+ $data2[$i]["hokanryou-pw"] = $obj["hokanryou-pw"];
+ $data2[$i]["hokanzougen"] = $obj["hokanzougen"];
+ $data2[$i]["hokansukei"] = $obj["hokansukei"];
+ $i++;
+}
+
+$db = db_connect();
+$SQL ="SELECT * FROM jisseki_shushi";
+$result = $db->query($SQL) or die(print_r($db->error));
+$i = 1;
+while ($obj = $result->fetch_array(MYSQL_ASSOC))
+{
+ $data3[$i]["mishikomikin"] = $obj["mishikomikin"];
+ $data3[$i]["hokanryou-shutei"] = $obj["hokanryou-shutei"];
+ $data3[$i]["hokanryou-pw"] = $obj["hokanryou-pw"];
+ $data3[$i]["hokanzougen"] = $obj["hokanzougen"];
+ $data3[$i]["hokansukei"] = $obj["hokansukei"];
+ $i++;
+}
+  
+$db = db_connect();
+$SQL ="SELECT * FROM keikakuz_shushi";
+$result = $db->query($SQL) or die(print_r($db->error));
+$i = 1;
+while ($obj = $result->fetch_array(MYSQL_ASSOC))
+{
+ $data4[$i]["mishikomikin"] = $obj["mishikomikin"];
+ $data4[$i]["hokanryou-shutei"] = $obj["hokanryou-shutei"];
+ $data4[$i]["hokanryou-pw"] = $obj["hokanryou-pw"];
+ $data4[$i]["hokanzougen"] = $obj["hokanzougen"];
+ $data4[$i]["hokansukei"] = $obj["hokansukei"];
+ $i++;
+}
+
             echo "<h1 style=\"text-align: center\">Table exemple</h1>";
 
             /**
@@ -76,7 +127,7 @@ while($obj=$result->fetch_array(MYSQLI_ASSOC));
              * @param <Array> headers
              * @param <Array> data
              */
-            $t->showTable($headers, $data,$headersub);
+            $t->showTable($headers, $data,$data2,$data3,$data4,$headersub);
         ?>
     </body>
 </html>
