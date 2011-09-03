@@ -153,20 +153,21 @@ class Table {
        $shuteiHokukanCount = count($shuteiHokukan);
        
        $marineClub = array(
-       	    0 => "年会費（法人）",
-            1=>  "年会費（個人）",
-            2 => "計　　　粗利益",
-            3 => "レンタルボート　　売上",
-            4 => "＆　営業収入　　仕入",
-            5 => "粗利益",
-            6 => "運行管理　　売上",
-            7 => "運行管理　　仕入",
-            8 => "粗利益",
-            9 => "売上計",
-           10 => "マリンクラブ　計　仕入計",
-           11 => "粗利益",
-           12 => "法人口数",
-           13 => "個人口数"
+       	    0 => "マリンクラブ",
+            1 => "年会費（法人）",
+            2=>  "年会費（個人）",
+            3 => "計　　　粗利益",
+            4 => "レンタルボート　　売上",
+            5 => "＆　営業収入　　仕入",
+            6 => "粗利益",
+            7 => "運行管理　　売上",
+            8 => "運行管理　　仕入",
+            9 => "粗利益",
+           10 => "売上計",
+           11 => "マリンクラブ　計　仕入計",
+           12 => "粗利益",
+           13 => "法人口数",
+           14 => "個人口数"
        );
        $marineClubCount = count($marineClub);
        
@@ -225,242 +226,223 @@ class Table {
        }
        $table .= "</tr>";
 
-
-       /*print_r($data);*/
-       //BODY
-        $j = 0;
-        $count = 0;
-        $table.= "<td rowspan='$shuteiHokukanCount' nowrap='nowrap' valign='top' bgcolor='#fff'><b>$shuteiHokukan[0]</b></td>";
-        for ($i = 0; $i < 3; $i++)
-        {   
+      $j = 0;
+            $count = 0;
+            $table.= "<td rowspan='$shuteiHokukanCount' nowrap='nowrap' valign='top' bgcolor='#fff'><b>$shuteiHokukan[0]</b></td>";
+            for ($i = 0; $i < 3; $i++)
+                {   
+                    $table.= "<tr bgcolor='#fff'>";
+                    for ($i = 0; $i < 3; $i++)
+                    {
+                        if ($i == 0)
+                            {
+                                $j=1;
+                                $table.="<td nowrap='nowrap'><b>$shuteiHokukan[$j]</b></td>";
+                                $j++;
+                            }
+                        $table .= "<td nowrap='nowrap'>" . $data[$i]['jitsu_shushi']['mishikomikin'] . "</td>";
+                        $table .= "<td nowrap='nowrap'>" . $data[$i]['keikaku_shushi']['mishikomikin'] . "</td>";
+                        $table .= "<td nowrap='nowrap'>" . $data[$i]['jisseki_shushi']['mishikomikin'] . "</td>";
+                        $table .= "<td nowrap='nowrap'>" . $data[$i]['keikakuZ_shushi']['mishikomikin'] . "</td>";
+                
+                        if ($i == 2)
+                            {
+                                $total =  $data[0]['jitsu_shushi']['mishikomikin'] + $data[1]['jitsu_shushi']['mishikomikin'] + $data[2]['jitsu_shushi']['mishikomikin'];
+                                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+                
+                                $total =  $data[0]['keikaku_shushi']['mishikomikin'] + $data[1]['keikaku_shushi']['mishikomikin'] + $data[2]['keikaku_shushi']['mishikomikin'];
+                                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+                
+                                $total =  $data[0]['jisseki_shushi']['mishikomikin'] + $data[1]['jisseki_shushi']['mishikomikin'] + $data[2]['jisseki_shushi']['mishikomikin'];
+                                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+                
+                                $total =  $data[0]['keikakuZ_shushi']['mishikomikin'] + $data[1]['keikakuZ_shushi']['mishikomikin'] + $data[2]['keikakuZ_shushi']['mishikomikin'];
+                                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+                            }
+                    }
             
-            $table.= "<tr bgcolor='#fff'>";
-            for ($i = 0; $i < 3; $i++)
-            {
+                    $table .= "</tr>";
+                    $table.= "<tr bgcolor='#fff'>";
+                    for ($i = 0; $i < 3; $i++)
+                            {
+                                if ($i == 0)
+                                    {
+                                        $table.="<td nowrap='nowrap'><b>$shuteiHokukan[$j]</b></td>";
+                                        $j++;    
+                                    }
+                                $table .= "<td nowrap='nowrap'>" . $data[$i]['jitsu_shushi']['hokanryou-shutei'] . "</td>";
+                                $table .= "<td nowrap='nowrap'>" . $data[$i]['keikaku_shushi']['hokanryou-shutei'] . "</td>";
+                                $table .= "<td nowrap='nowrap'>" . $data[$i]['jisseki_shushi']['hokanryou-shutei'] . "</td>";
+                                $table .= "<td nowrap='nowrap'>" . $data[$i]['keikakuZ_shushi']['hokanryou-shutei'] . "</td>";
+                                if ($i == 2)
+                                    {
+                                        $total =  $data[0]['jitsu_shushi']['hokanryou-shutei'] + $data[1]['jitsu_shushi']['hokanryou-shutei'] + $data[2]['jitsu_shushi']['hokanryou-shutei'];
+                                        $table .= "<td nowrap='nowrap'>" . $total . "</td>";
                 
-                if ($i == 0)
-            {
-                $j=1;
-                $table.="<td nowrap='nowrap'><b>$shuteiHokukan[$j]</b></td>";
-                $j++;
+                                        $total =  $data[0]['keikaku_shushi']['hokanryou-shutei'] + $data[1]['keikaku_shushi']['hokanryou-shutei'] + $data[2]['keikaku_shushi']['hokanryou-shutei'];
+                                        $table .= "<td nowrap='nowrap'>" . $total . "</td>";
                 
-            }
-                $table .= "<td nowrap='nowrap'>" . $data[$i]['jitsu_shushi']['mishikomikin'] . "</td>";
-                $table .= "<td nowrap='nowrap'>" . $data[$i]['keikaku_shushi']['mishikomikin'] . "</td>";
-                $table .= "<td nowrap='nowrap'>" . $data[$i]['jisseki_shushi']['mishikomikin'] . "</td>";
-                $table .= "<td nowrap='nowrap'>" . $data[$i]['keikakuZ_shushi']['mishikomikin'] . "</td>";
+                                        $total =  $data[0]['jisseki_shushi']['hokanryou-shutei'] + $data[1]['jisseki_shushi']['hokanryou-shutei'] + $data[2]['jisseki_shushi']['hokanryou-shutei'];
+                                        $table .= "<td nowrap='nowrap'>" . $total . "</td>";
                 
-                if ($i == 2)
-                {
-                $total =  $data[0]['jitsu_shushi']['mishikomikin'] + $data[1]['jitsu_shushi']['mishikomikin'] + $data[2]['jitsu_shushi']['mishikomikin'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+                                        $total =  $data[0]['keikakuZ_shushi']['hokanryou-shutei'] + $data[1]['keikakuZ_shushi']['hokanryou-shutei'] + $data[2]['keikakuZ_shushi']['hokanryou-shutei'];
+                                        $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+                                    }
+                            }
+                            $table .= "</tr>";
+                            $table.= "<tr bgcolor='#fff'>";
+                            for ($i = 0; $i < 3; $i++)
+                                {
+                                    if ($i == 0)
+                                    {
+                                        $table.="<td nowrap='nowrap'><b>$shuteiHokukan[$j]</b></td>";
+                                        $j++;
+                                    }
+                                    $table .= "<td nowrap='nowrap'>" . $data[$i]['jitsu_shushi']['hokanryou-pw'] . "</td>";
+                                    $table .= "<td nowrap='nowrap'>" . $data[$i]['keikaku_shushi']['hokanryou-pw'] . "</td>";
+                                    $table .= "<td nowrap='nowrap'>" . $data[$i]['jisseki_shushi']['hokanryou-pw'] . "</td>";
+                                    $table .= "<td nowrap='nowrap'>" . $data[$i]['keikakuZ_shushi']['hokanryou-pw'] . "</td>";
                 
-                $total =  $data[0]['keikaku_shushi']['mishikomikin'] + $data[1]['keikaku_shushi']['mishikomikin'] + $data[2]['keikaku_shushi']['mishikomikin'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+                                    if ($i == 2)
+                                        {
+                                            $total =  $data[0]['jitsu_shushi']['hokanryou-pw'] + $data[1]['jitsu_shushi']['hokanryou-pw'] + $data[2]['jitsu_shushi']['hokanryou-pw'];
+                                            $table .= "<td nowrap='nowrap'>" . $total . "</td>";
                 
-                $total =  $data[0]['jisseki_shushi']['mishikomikin'] + $data[1]['jisseki_shushi']['mishikomikin'] + $data[2]['jisseki_shushi']['mishikomikin'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+                                            $total =  $data[0]['keikaku_shushi']['hokanryou-pw'] + $data[1]['keikaku_shushi']['hokanryou-pw'] + $data[2]['keikaku_shushi']['hokanryou-pw'];
+                                            $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+
+                                            $total =  $data[0]['jisseki_shushi']['hokanryou-pw'] + $data[1]['jisseki_shushi']['hokanryou-pw'] + $data[2]['jisseki_shushi']['hokanryou-pw'];
+                                            $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+
+                                            $total =  $data[0]['keikakuZ_shushi']['hokanryou-pw'] + $data[1]['keikakuZ_shushi']['hokanryou-pw'] + $data[2]['keikakuZ_shushi']['hokanryou-pw'];
+                                            $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+                                        }
+                                }
+                                $table .= "</tr>";
+                                $table.= "<tr bgcolor='#fff'>";
+                                for ($i = 0; $i < 3; $i++)
+                                    {
+                                        if ($i == 0)
+                                            {
+                                                $table.="<td nowrap='nowrap'><b>$shuteiHokukan[$j]</b></td>";
+                                                $j++;
+                                            }
+                                        $total = $data[$i]['jitsu_shushi']['hokanryou-shutei'] + $data[$i]['jitsu_shushi']['hokanryou-pw'];
+                                        $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+                                        $total = $data[$i]['keikaku_shushi']['hokanryou-shutei'] + $data[$i]['keikaku_shushi']['hokanryou-pw'];
+                                        $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+                                        $total = $data[$i]['jisseki_shushi']['hokanryou-shutei'] + $data[$i]['jisseki_shushi']['hokanryou-pw'];
+                                        $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+                                        $total = $data[$i]['keikakuZ_shushi']['hokanryou-shutei'] + $data[$i]['keikakuZ_shushi']['hokanryou-pw'];
+                                        $table .= "<td nowrap='nowrap'>" . $total . "</td>";
                 
-                $total =  $data[0]['keikakuZ_shushi']['mishikomikin'] + $data[1]['keikakuZ_shushi']['mishikomikin'] + $data[2]['keikakuZ_shushi']['mishikomikin'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                }
-            }
-            
-            $table .= "</tr>";
-            $table.= "<tr bgcolor='#fff'>";
-            for ($i = 0; $i < 3; $i++)
-            {
-                     if ($i == 0)
-            {
-                $table.="<td nowrap='nowrap'><b>$shuteiHokukan[$j]</b></td>";
-                $j++;
-                
-            }
-                $table .= "<td nowrap='nowrap'>" . $data[$i]['jitsu_shushi']['hokanryou-shutei'] . "</td>";
-                $table .= "<td nowrap='nowrap'>" . $data[$i]['keikaku_shushi']['hokanryou-shutei'] . "</td>";
-                $table .= "<td nowrap='nowrap'>" . $data[$i]['jisseki_shushi']['hokanryou-shutei'] . "</td>";
-                $table .= "<td nowrap='nowrap'>" . $data[$i]['keikakuZ_shushi']['hokanryou-shutei'] . "</td>";
-                if ($i == 2)
-                {
-                $total =  $data[0]['jitsu_shushi']['hokanryou-shutei'] + $data[1]['jitsu_shushi']['hokanryou-shutei'] + $data[2]['jitsu_shushi']['hokanryou-shutei'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                
-                $total =  $data[0]['keikaku_shushi']['hokanryou-shutei'] + $data[1]['keikaku_shushi']['hokanryou-shutei'] + $data[2]['keikaku_shushi']['hokanryou-shutei'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                
-                $total =  $data[0]['jisseki_shushi']['hokanryou-shutei'] + $data[1]['jisseki_shushi']['hokanryou-shutei'] + $data[2]['jisseki_shushi']['hokanryou-shutei'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                
-                $total =  $data[0]['keikakuZ_shushi']['hokanryou-shutei'] + $data[1]['keikakuZ_shushi']['hokanryou-shutei'] + $data[2]['keikakuZ_shushi']['hokanryou-shutei'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                }
-            }
-            $table .= "</tr>";
-            $table.= "<tr bgcolor='#fff'>";
-            for ($i = 0; $i < 3; $i++)
-            {
-                     if ($i == 0)
-            {
-                $table.="<td nowrap='nowrap'><b>$shuteiHokukan[$j]</b></td>";
-                $j++;
-                
-            }
-                $table .= "<td nowrap='nowrap'>" . $data[$i]['jitsu_shushi']['hokanryou-pw'] . "</td>";
-                $table .= "<td nowrap='nowrap'>" . $data[$i]['keikaku_shushi']['hokanryou-pw'] . "</td>";
-                $table .= "<td nowrap='nowrap'>" . $data[$i]['jisseki_shushi']['hokanryou-pw'] . "</td>";
-                $table .= "<td nowrap='nowrap'>" . $data[$i]['keikakuZ_shushi']['hokanryou-pw'] . "</td>";
-                
-                if ($i == 2)
-                {
-                $total =  $data[0]['jitsu_shushi']['hokanryou-pw'] + $data[1]['jitsu_shushi']['hokanryou-pw'] + $data[2]['jitsu_shushi']['hokanryou-pw'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                
-                $total =  $data[0]['keikaku_shushi']['hokanryou-pw'] + $data[1]['keikaku_shushi']['hokanryou-pw'] + $data[2]['keikaku_shushi']['hokanryou-pw'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                
-                $total =  $data[0]['jisseki_shushi']['hokanryou-pw'] + $data[1]['jisseki_shushi']['hokanryou-pw'] + $data[2]['jisseki_shushi']['hokanryou-pw'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                
-                $total =  $data[0]['keikakuZ_shushi']['hokanryou-pw'] + $data[1]['keikakuZ_shushi']['hokanryou-pw'] + $data[2]['keikakuZ_shushi']['hokanryou-pw'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                }
-                
-            }
-            $table .= "</tr>";
-            $table.= "<tr bgcolor='#fff'>";
-            for ($i = 0; $i < 3; $i++)
-            {
-                         if ($i == 0)
-            {
-                $table.="<td nowrap='nowrap'><b>$shuteiHokukan[$j]</b></td>";
-                $j++;
-                
-            }
-                $total = $data[$i]['jitsu_shushi']['hokanryou-shutei'] + $data[$i]['jitsu_shushi']['hokanryou-pw'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                $total = $data[$i]['keikaku_shushi']['hokanryou-shutei'] + $data[$i]['keikaku_shushi']['hokanryou-pw'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                $total = $data[$i]['jisseki_shushi']['hokanryou-shutei'] + $data[$i]['jisseki_shushi']['hokanryou-pw'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                $total = $data[$i]['keikakuZ_shushi']['hokanryou-shutei'] + $data[$i]['keikakuZ_shushi']['hokanryou-pw'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                
-                if ($i == 2)
-                {
-                $total =  $data[0]['jitsu_shushi']['hokanryou-shutei'] + $data[1]['jitsu_shushi']['hokanryou-shutei'] + $data[02]['jitsu_shushi']['hokanryou-shutei'] +  $data[0]['jitsu_shushi']['hokanryou-pw'] + $data[1]['jitsu_shushi']['hokanryou-pw'] + $data[2]['jitsu_shushi']['hokanryou-pw'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                
-                $total =  $data[0]['keikaku_shushi']['hokanryou-shutei'] + $data[1]['keikaku_shushi']['hokanryou-shutei'] + $data[02]['keikaku_shushi']['hokanryou-shutei'] +  $data[0]['keikaku_shushi']['hokanryou-pw'] + $data[1]['keikaku_shushi']['hokanryou-pw'] + $data[2]['keikaku_shushi']['hokanryou-pw'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                
-                $total =  $data[0]['jisseki_shushi']['hokanryou-shutei'] + $data[1]['jisseki_shushi']['hokanryou-shutei'] + $data[02]['jisseki_shushi']['hokanryou-shutei'] +  $data[0]['jisseki_shushi']['hokanryou-pw'] + $data[1]['jisseki_shushi']['hokanryou-pw'] + $data[2]['jisseki_shushi']['hokanryou-pw'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                
-                $total =  $data[0]['keikakuZ_shushi']['hokanryou-shutei'] + $data[1]['keikakuZ_shushi']['hokanryou-shutei'] + $data[02]['keikakuZ_shushi']['hokanryou-shutei'] +  $data[0]['keikakuZ_shushi']['hokanryou-pw'] + $data[1]['keikakuZ_shushi']['hokanryou-pw'] + $data[2]['keikakuZ_shushi']['hokanryou-pw'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                }
+                                        if ($i == 2)
+                                            {
+                                                $total =  $data[0]['jitsu_shushi']['hokanryou-shutei'] + $data[1]['jitsu_shushi']['hokanryou-shutei'] + $data[02]['jitsu_shushi']['hokanryou-shutei'] +  $data[0]['jitsu_shushi']['hokanryou-pw'] + $data[1]['jitsu_shushi']['hokanryou-pw'] + $data[2]['jitsu_shushi']['hokanryou-pw'];
+                                                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+
+                                                $total =  $data[0]['keikaku_shushi']['hokanryou-shutei'] + $data[1]['keikaku_shushi']['hokanryou-shutei'] + $data[02]['keikaku_shushi']['hokanryou-shutei'] +  $data[0]['keikaku_shushi']['hokanryou-pw'] + $data[1]['keikaku_shushi']['hokanryou-pw'] + $data[2]['keikaku_shushi']['hokanryou-pw'];
+                                                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+
+                                                $total =  $data[0]['jisseki_shushi']['hokanryou-shutei'] + $data[1]['jisseki_shushi']['hokanryou-shutei'] + $data[02]['jisseki_shushi']['hokanryou-shutei'] +  $data[0]['jisseki_shushi']['hokanryou-pw'] + $data[1]['jisseki_shushi']['hokanryou-pw'] + $data[2]['jisseki_shushi']['hokanryou-pw'];
+                                                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+
+                                                $total =  $data[0]['keikakuZ_shushi']['hokanryou-shutei'] + $data[1]['keikakuZ_shushi']['hokanryou-shutei'] + $data[02]['keikakuZ_shushi']['hokanryou-shutei'] +  $data[0]['keikakuZ_shushi']['hokanryou-pw'] + $data[1]['keikakuZ_shushi']['hokanryou-pw'] + $data[2]['keikakuZ_shushi']['hokanryou-pw'];
+                                                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+                                            }
                
-            }
+                                    }
+                                    $table .= "</tr>";
+                                    $table.= "<tr bgcolor='#fff'>";
+                                    for ($i = 0; $i < 3; $i++)
+                                        {
+                                            if ($i == 0)
+                                                {
+                                                    $table.="<td nowrap='nowrap'><b>$shuteiHokukan[$j]</b></td>";
+                                                    $j++;
+                                                }
+                                        $total = $data[$i]['jitsu_shushi']['mishikomikin'] + $data[$i]['jitsu_shushi']['hokanryou-shutei'] + $data[$i]['jitsu_shushi']['hokanryou-pw'];
+                                        $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+                                        $total = $data[$i]['keikaku_shushi']['mishikomikin'] + $data[$i]['keikaku_shushi']['hokanryou-shutei'] + $data[$i]['keikaku_shushi']['hokanryou-pw'];
+                                        $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+                                        $total = $data[$i]['jisseki_shushi']['mishikomikin'] + $data[$i]['jisseki_shushi']['hokanryou-shutei'] + $data[$i]['jisseki_shushi']['hokanryou-pw'];
+                                        $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+                                        $total = $data[$i]['keikakuZ_shushi']['mishikomikin'] + $data[$i]['keikakuZ_shushi']['hokanryou-shutei'] + $data[$i]['keikakuZ_shushi']['hokanryou-pw'];
+                                        $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+                                            if ($i == 2)
+                                                {
+                                                    $total =  $data[0]['jitsu_shushi']['mishikomikin'] + $data[1]['jitsu_shushi']['mishikomikin'] + $data[2]['jitsu_shushi']['mishikomikin'] + $data[0]['jitsu_shushi']['hokanryou-shutei'] + $data[1]['jitsu_shushi']['hokanryou-shutei'] + $data[2]['jitsu_shushi']['hokanryou-shutei'] +  $data[0]['jitsu_shushi']['hokanryou-pw'] + $data[1]['jitsu_shushi']['hokanryou-pw'] + $data[2]['jitsu_shushi']['hokanryou-pw'];
+                                                    $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+
+                                                    $total =  $data[0]['keikaku_shushi']['mishikomikin'] + $data[1]['keikaku_shushi']['mishikomikin'] + $data[2]['keikaku_shushi']['mishikomikin'] + $data[0]['keikaku_shushi']['hokanryou-shutei'] + $data[1]['keikaku_shushi']['hokanryou-shutei'] + $data[2]['keikaku_shushi']['hokanryou-shutei'] +  $data[0]['keikaku_shushi']['hokanryou-pw'] + $data[1]['keikaku_shushi']['hokanryou-pw'] + $data[2]['keikaku_shushi']['hokanryou-pw'];
+                                                    $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+
+                                                    $total =  $data[0]['jisseki_shushi']['mishikomikin'] + $data[1]['jisseki_shushi']['mishikomikin'] + $data[2]['jisseki_shushi']['mishikomikin'] + $data[0]['jisseki_shushi']['hokanryou-shutei'] + $data[1]['jisseki_shushi']['hokanryou-shutei'] + $data[2]['jisseki_shushi']['hokanryou-shutei'] +  $data[0]['jisseki_shushi']['hokanryou-pw'] + $data[1]['jisseki_shushi']['hokanryou-pw'] + $data[2]['jisseki_shushi']['hokanryou-pw'];
+                                                    $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+
+                                                    $total =  $data[0]['keikakuZ_shushi']['mishikomikin'] + $data[1]['keikakuZ_shushi']['mishikomikin'] + $data[2]['keikakuZ_shushi']['mishikomikin'] + $data[0]['keikakuZ_shushi']['hokanryou-shutei'] + $data[1]['keikakuZ_shushi']['hokanryou-shutei'] + $data[2]['keikakuZ_shushi']['hokanryou-shutei'] +  $data[0]['keikakuZ_shushi']['hokanryou-pw'] + $data[1]['keikakuZ_shushi']['hokanryou-pw'] + $data[2]['keikakuZ_shushi']['hokanryou-pw'];
+                                                    $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+                                                }  
+                                        }
+                                        $table .= "</tr>";
+                                        $table.= "<tr bgcolor='#fff'>";
+                                        for ($i = 0; $i < 3; $i++)
+                                            {
+                                                 if ($i == 0)
+                                                    {
+                                                        $table.="<td nowrap='nowrap'><b>$shuteiHokukan[$j]</b></td>";
+                                                        $j++;
+                                                    }
+                                                $table .= "<td nowrap='nowrap'>" . $data[$i]['jitsu_shushi']['hokanzougen'] . "</td>";
+                                                $table .= "<td nowrap='nowrap'>" . $data[$i]['keikaku_shushi']['hokanzougen'] . "</td>";
+                                                $table .= "<td nowrap='nowrap'>" . $data[$i]['jisseki_shushi']['hokanzougen'] . "</td>";
+                                                $table .= "<td nowrap='nowrap'>" . $data[$i]['keikakuZ_shushi']['hokanzougen'] . "</td>";
+                                                if ($i == 2)
+                                                    {
+                                                        $total =  $data[0]['jitsu_shushi']['hokanzougen'] + $data[1]['jitsu_shushi']['hokanzougen'] + $data[2]['jitsu_shushi']['hokanzougen'];
+                                                        $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+
+                                                        $total =  $data[0]['keikaku_shushi']['hokanzougen'] + $data[1]['keikaku_shushi']['hokanzougen'] + $data[2]['keikaku_shushi']['hokanzougen'];
+                                                        $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+
+                                                        $total =  $data[0]['jisseki_shushi']['hokanzougen'] + $data[1]['jisseki_shushi']['hokanzougen'] + $data[2]['jisseki_shushi']['hokanzougen'];
+                                                        $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+
+                                                        $total =  $data[0]['keikakuZ_shushi']['hokanzougen'] + $data[1]['keikakuZ_shushi']['hokanzougen'] + $data[2]['keikakuZ_shushi']['hokanzougen'];
+                                                        $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+                                                    }
+                                            }
+                                            $table .= "</tr>";
+                                            $table.= "<tr bgcolor='#fff'>";
+                                            for ($i = 0; $i < 3; $i++)
+                                                {
+                                                    if ($i == 0)
+                                                        {
+                                                            $table.="<td nowrap='nowrap'><b>$shuteiHokukan[$j]</b></td>";
+                                                            $j++;
+                                                        }
+                                                        $table .= "<td nowrap='nowrap'>" . $data[$i]['jitsu_shushi']['hokansukei'] . "</td>";
+                                                        $table .= "<td nowrap='nowrap'>" . $data[$i]['keikaku_shushi']['hokansukei'] . "</td>";
+                                                        $table .= "<td nowrap='nowrap'>" . $data[$i]['jisseki_shushi']['hokansukei'] . "</td>";
+                                                        $table .= "<td nowrap='nowrap'>" . $data[$i]['keikakuZ_shushi']['hokansukei'] . "</td>";
+                                                        if ($i == 2)
+                                                            {
+                                                                $total =  $data[0]['jitsu_shushi']['hokansukei'] + $data[1]['jitsu_shushi']['hokansukei'] + $data[2]['jitsu_shushi']['hokansukei'];
+                                                                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+
+                                                                $total =  $data[0]['keikaku_shushi']['hokansukei'] + $data[1]['keikaku_shushi']['hokansukei'] + $data[2]['keikaku_shushi']['hokansukei'];
+                                                                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+
+                                                                $total =  $data[0]['jisseki_shushi']['hokansukei'] + $data[1]['jisseki_shushi']['hokansukei'] + $data[2]['jisseki_shushi']['hokansukei'];
+                                                                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+
+                                                                $total =  $data[0]['keikakuZ_shushi']['hokansukei'] + $data[1]['keikakuZ_shushi']['hokansukei'] + $data[2]['keikakuZ_shushi']['hokansukei'];
+                                                                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
+                                                            }
+                                                }
             $table .= "</tr>";
-             $table.= "<tr bgcolor='#fff'>";
-            for ($i = 0; $i < 3; $i++)
-            {
-                         if ($i == 0)
-            {
-                $table.="<td nowrap='nowrap'><b>$shuteiHokukan[$j]</b></td>";
-                $j++;
-                
-            }
-                $total = $data[$i]['jitsu_shushi']['mishikomikin'] + $data[$i]['jitsu_shushi']['hokanryou-shutei'] + $data[$i]['jitsu_shushi']['hokanryou-pw'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                $total = $data[$i]['keikaku_shushi']['mishikomikin'] + $data[$i]['keikaku_shushi']['hokanryou-shutei'] + $data[$i]['keikaku_shushi']['hokanryou-pw'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                $total = $data[$i]['jisseki_shushi']['mishikomikin'] + $data[$i]['jisseki_shushi']['hokanryou-shutei'] + $data[$i]['jisseki_shushi']['hokanryou-pw'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                $total = $data[$i]['keikakuZ_shushi']['mishikomikin'] + $data[$i]['keikakuZ_shushi']['hokanryou-shutei'] + $data[$i]['keikakuZ_shushi']['hokanryou-pw'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                if ($i == 2)
-                {
-                $total =  $data[0]['jitsu_shushi']['mishikomikin'] + $data[1]['jitsu_shushi']['mishikomikin'] + $data[2]['jitsu_shushi']['mishikomikin'] + $data[0]['jitsu_shushi']['hokanryou-shutei'] + $data[1]['jitsu_shushi']['hokanryou-shutei'] + $data[2]['jitsu_shushi']['hokanryou-shutei'] +  $data[0]['jitsu_shushi']['hokanryou-pw'] + $data[1]['jitsu_shushi']['hokanryou-pw'] + $data[2]['jitsu_shushi']['hokanryou-pw'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                
-                $total =  $data[0]['keikaku_shushi']['mishikomikin'] + $data[1]['keikaku_shushi']['mishikomikin'] + $data[2]['keikaku_shushi']['mishikomikin'] + $data[0]['keikaku_shushi']['hokanryou-shutei'] + $data[1]['keikaku_shushi']['hokanryou-shutei'] + $data[2]['keikaku_shushi']['hokanryou-shutei'] +  $data[0]['keikaku_shushi']['hokanryou-pw'] + $data[1]['keikaku_shushi']['hokanryou-pw'] + $data[2]['keikaku_shushi']['hokanryou-pw'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                
-                $total =  $data[0]['jisseki_shushi']['mishikomikin'] + $data[1]['jisseki_shushi']['mishikomikin'] + $data[2]['jisseki_shushi']['mishikomikin'] + $data[0]['jisseki_shushi']['hokanryou-shutei'] + $data[1]['jisseki_shushi']['hokanryou-shutei'] + $data[2]['jisseki_shushi']['hokanryou-shutei'] +  $data[0]['jisseki_shushi']['hokanryou-pw'] + $data[1]['jisseki_shushi']['hokanryou-pw'] + $data[2]['jisseki_shushi']['hokanryou-pw'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                
-                $total =  $data[0]['keikakuZ_shushi']['mishikomikin'] + $data[1]['keikakuZ_shushi']['mishikomikin'] + $data[2]['keikakuZ_shushi']['mishikomikin'] + $data[0]['keikakuZ_shushi']['hokanryou-shutei'] + $data[1]['keikakuZ_shushi']['hokanryou-shutei'] + $data[2]['keikakuZ_shushi']['hokanryou-shutei'] +  $data[0]['keikakuZ_shushi']['hokanryou-pw'] + $data[1]['keikakuZ_shushi']['hokanryou-pw'] + $data[2]['keikakuZ_shushi']['hokanryou-pw'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
                 }
-               
-            }
-            $table .= "</tr>";
-            $table.= "<tr bgcolor='#fff'>";
-            for ($i = 0; $i < 3; $i++)
-            {
-                         if ($i == 0)
-            {
-                $table.="<td nowrap='nowrap'><b>$shuteiHokukan[$j]</b></td>";
-                $j++;
-                
-            }
-                $table .= "<td nowrap='nowrap'>" . $data[$i]['jitsu_shushi']['hokanzougen'] . "</td>";
-                $table .= "<td nowrap='nowrap'>" . $data[$i]['keikaku_shushi']['hokanzougen'] . "</td>";
-                $table .= "<td nowrap='nowrap'>" . $data[$i]['jisseki_shushi']['hokanzougen'] . "</td>";
-                $table .= "<td nowrap='nowrap'>" . $data[$i]['keikakuZ_shushi']['hokanzougen'] . "</td>";
-                if ($i == 2)
-                {
-                $total =  $data[0]['jitsu_shushi']['hokanzougen'] + $data[1]['jitsu_shushi']['hokanzougen'] + $data[2]['jitsu_shushi']['hokanzougen'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                
-                $total =  $data[0]['keikaku_shushi']['hokanzougen'] + $data[1]['keikaku_shushi']['hokanzougen'] + $data[2]['keikaku_shushi']['hokanzougen'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                
-                $total =  $data[0]['jisseki_shushi']['hokanzougen'] + $data[1]['jisseki_shushi']['hokanzougen'] + $data[2]['jisseki_shushi']['hokanzougen'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                
-                $total =  $data[0]['keikakuZ_shushi']['hokanzougen'] + $data[1]['keikakuZ_shushi']['hokanzougen'] + $data[2]['keikakuZ_shushi']['hokanzougen'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                }
-            }
-            $table .= "</tr>";
-            $table.= "<tr bgcolor='#fff'>";
-            for ($i = 0; $i < 3; $i++)
-            {
-                         if ($i == 0)
-            {
-                $table.="<td nowrap='nowrap'><b>$shuteiHokukan[$j]</b></td>";
-                $j++;
-                
-            }
-                $table .= "<td nowrap='nowrap'>" . $data[$i]['jitsu_shushi']['hokansukei'] . "</td>";
-                $table .= "<td nowrap='nowrap'>" . $data[$i]['keikaku_shushi']['hokansukei'] . "</td>";
-                $table .= "<td nowrap='nowrap'>" . $data[$i]['jisseki_shushi']['hokansukei'] . "</td>";
-                $table .= "<td nowrap='nowrap'>" . $data[$i]['keikakuZ_shushi']['hokansukei'] . "</td>";
-                if ($i == 2)
-                {
-                $total =  $data[0]['jitsu_shushi']['hokansukei'] + $data[1]['jitsu_shushi']['hokansukei'] + $data[2]['jitsu_shushi']['hokansukei'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                
-                $total =  $data[0]['keikaku_shushi']['hokansukei'] + $data[1]['keikaku_shushi']['hokansukei'] + $data[2]['keikaku_shushi']['hokansukei'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                
-                $total =  $data[0]['jisseki_shushi']['hokansukei'] + $data[1]['jisseki_shushi']['hokansukei'] + $data[2]['jisseki_shushi']['hokansukei'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                
-                $total =  $data[0]['keikakuZ_shushi']['hokansukei'] + $data[1]['keikakuZ_shushi']['hokansukei'] + $data[2]['keikakuZ_shushi']['hokansukei'];
-                $table .= "<td nowrap='nowrap'>" . $total . "</td>";
-                }
-            }
-            $table .= "</tr>";
-
-
-
-
-
             $j++;
-        }
 
         $table .= "</table>";
 
