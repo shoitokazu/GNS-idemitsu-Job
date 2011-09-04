@@ -436,6 +436,7 @@ class Table {
                                                             }
                                                 }
             $table .= "</tr>";
+            $table .="<tr><td colspan='6'><b>".$data[0]['jitsu_shushi']['nenKaihi-houjin'] ."</b></td>";
                 }
             $j++;
 

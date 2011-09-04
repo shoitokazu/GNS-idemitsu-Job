@@ -6,6 +6,7 @@ require_once 'dbCallActions.php';
 
             //Set table's headers
             $headers = array("平成21年4月","平成21年5月","平成21年6月","平成21年4〜6月計");
+            $headersKeihi;
             
             $headersub = array( 
             				array("20/4実","計画","実績","計画増減"),
@@ -13,6 +14,7 @@ require_once 'dbCallActions.php';
                			 	array("20/6実","計画","実績","計画増減"),
                			 	array("前Q実績","前Q計画","前Q実績","計画増減")  
              ); 
+            $headersubKeihi;
             
             //Set table's matrix data
       $data = array();
