@@ -38,8 +38,10 @@ require_once 'dbCallActions.php';
            $t->setBodyClass("bodyClass");
 
             $t->showTable($headers, $headersub);
-            $t->showTableBody($result);
-            $t->showTableBody($result);
+//            $t->showTableBody($result);
+//            $t->showTableBody($result);
+            $t->showTableBody($result,"shuteiHokan");
+            $t->showTableBody($result,"marineClub");
             $t->closeTable();
             
         ?>
