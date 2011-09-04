@@ -1,8 +1,7 @@
 <?php
-/*
- * error_reporting(-1);
-*/
 /**
+ * error_reporting(-1);
+
  * @author Michele Andreoli <michi.andreoli@gmail.com>
  * @name Table.class.php
  * @version 0.1
@@ -138,48 +137,19 @@ class Table {
      * @param <Array> $headers header for every column
      * @param <Array> $data data matrix
      */
-    public function showTable($headers, $data, $headersub)
+    public function showTable($headers,$headersub)
    {
-       $shuteiHokukan = array(
-       	    0 => "舟艇保管",
-            1=>  "申込金",
-            2 => "保管料（舟艇）",
-            3 => "保管料（PW）",
-            4 => "計",
-            5 => "粗利益",
-            6 => "保管増減",
-            7 => "保管巣計"
-       );
-       $shuteiHokukanCount = count($shuteiHokukan);
-       
-       $marineClub = array(
-       	    0 => "マリンクラブ",
-            1 => "年会費（法人）",
-            2=>  "年会費（個人）",
-            3 => "計　　　粗利益",
-            4 => "レンタルボート　　売上",
-            5 => "＆　営業収入　　仕入",
-            6 => "粗利益",
-            7 => "運行管理　　売上",
-            8 => "運行管理　　仕入",
-            9 => "粗利益",
-           10 => "売上計",
-           11 => "マリンクラブ　計　仕入計",
-           12 => "粗利益",
-           13 => "法人口数",
-           14 => "個人口数"
-       );
-       $marineClubCount = count($marineClub);
-       
-       $count = 0;
        $table = "<table $this->tableWidth $this->tableId $this->tableClass bgcolor='#000' cellspacing='1' cellpadding='2' border='0'>";
 
+       $i = 0;
+       $j =0;
+       $count = 0;
+       echo "testing space where table headers should go.<br />";
+       echo $headers[3]."<br />";
+       echo $headersub[1][1]."<br />";
+       $dataCount = count($headersub);
+       echo $dataCount."←Is anything to the left? There should be a number!<br />";
 
-       /*$dataCount = max($headersub);*/
-       /*$people = array("Peter", "Joe", "Glenn", "Cleveland");*/
-	   $dataCount = count($headersub);
-
-       //$table .= "<thead $this->headerId $this->headerClass><tr>";
        $table.= "<tr bgcolor='#fff'>";
        $table.= "<td'></td>";
       
@@ -214,19 +184,44 @@ class Table {
                $count++;
               }
            }
-           
-           /*
-            * foreach ($headersub as $g)
-            
-           {
-               $table .= "<td nowrap='nowrap'>$g</td>";
-           }
-            * 
-            */
        }
        $table .= "</tr>";
-
-      $j = 0;
+       echo $table;
+   }
+    public function showTableBody($data)
+   {
+      $shuteiHokukan = array(
+       	    0 => "舟艇保管",
+            1=>  "申込金",
+            2 => "保管料（舟艇）",
+            3 => "保管料（PW）",
+            4 => "計",
+            5 => "粗利益",
+            6 => "保管増減",
+            7 => "保管巣計"
+       );
+       $shuteiHokukanCount = count($shuteiHokukan);
+       
+       $marineClub = array(
+       	    0 => "マリンクラブ",
+            1 => "年会費（法人）",
+            2=>  "年会費（個人）",
+            3 => "計　　　粗利益",
+            4 => "レンタルボート　　売上",
+            5 => "＆　営業収入　　仕入",
+            6 => "粗利益",
+            7 => "運行管理　　売上",
+            8 => "運行管理　　仕入",
+            9 => "粗利益",
+           10 => "売上計",
+           11 => "マリンクラブ　計　仕入計",
+           12 => "粗利益",
+           13 => "法人口数",
+           14 => "個人口数"
+       );
+       $marineClubCount = count($marineClub);
+       $table .= "<tr>";
+       $j = 0;
             $count = 0;
             $table.= "<td rowspan='$shuteiHokukanCount' nowrap='nowrap' valign='top' bgcolor='#fff'><b>$shuteiHokukan[0]</b></td>";
             for ($i = 0; $i < 3; $i++)
@@ -444,9 +439,12 @@ class Table {
                 }
             $j++;
 
-        $table .= "</table>";
-
        echo $table;
+   }
+   
+   public function closeTable()
+   {
+       echo "</table>";
    }
 }
 

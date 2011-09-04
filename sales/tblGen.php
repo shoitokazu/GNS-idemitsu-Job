@@ -35,7 +35,11 @@ require_once 'dbCallActions.php';
            
            $t->setBodyClass("bodyClass");
 
-            $t->showTable($headers, $result,$headersub);
+            $t->showTable($headers, $headersub);
+            $t->showTableBody($result);
+            $t->showTableBody($result);
+            $t->closeTable();
+            
         ?>
     </body>
 </html>
